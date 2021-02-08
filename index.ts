@@ -6,9 +6,9 @@ import * as dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
-import { itemsRouter } from "./items/items.router";
-import { errorHandler } from "./middleware/error.middleware";
-import { notFoundHandler } from "./middleware/notFound.middleware";
+// import { itemsRouter } from "./src/items/items.router";
+import { errorHandler } from "./src/middleware/error.middleware";
+import { notFoundHandler } from "./src/middleware/notFound.middleware";
 
 dotenv.config();
 
@@ -32,7 +32,7 @@ const app = express();
 app.use(helmet()); //helmet is a collection of 14 small middleware functions that set HTTP response headers.
 app.use(cors()); //by mounting cors(), you enable all CORS requests.
 app.use(express.json()); //parse incoming requests with JSON payloads
-app.use("/items", itemsRouter);
+// app.use("/items", itemsRouter);
 
 //Using error handlers middlewares.
 app.use(errorHandler);
